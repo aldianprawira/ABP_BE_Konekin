@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class TEST extends Model
 {
     use HasFactory;
+    // patan askar
 }
