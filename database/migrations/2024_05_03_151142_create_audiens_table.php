@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('audiens', function (Blueprint $table) {
             $table->id();
             // $table->string('idAudiens',50)->primary();
-            $table->string('username', 50);
-            $table->string('noHP', 50);
-            $table->string('email', 50);
-            $table->binary('profilePict');
+            $table->string('username', 50)->nullable();
+            $table->string('noHP', 50)->nullable();
+            $table->string('email', 50)->nullable();
+            $table->binary('profilePict')->nullable();
             $table->timestamps();
         });
     }

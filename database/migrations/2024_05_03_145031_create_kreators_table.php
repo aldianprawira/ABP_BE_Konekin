@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
             // $table->string('idKreator',50)->primary();
             $table->string('username', 50);
-            $table->string('noHP', 50);
-            $table->string('email', 50);
-            $table->binary('cv');
-            $table->string('bio', 128);
-            $table->string('socMed', 128);
-            $table->string('rekening', 50);
-            $table->binary('profilePict');
+            $table->string('noHP', 50)->nullable();
+            $table->string('email', 50)->nullable();
+            $table->binary('cv')->nullable();
+            $table->string('bio', 128)->nullable();
+            $table->string('socMed', 128)->nullable();
+            $table->string('rekening', 50)->nullable();
+            $table->binary('profilePict')->nullable();
             $table->timestamps();
         });
     }
