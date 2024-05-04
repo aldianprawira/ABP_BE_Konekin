@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('audiens', function (Blueprint $table) {
-            $table->string('idAudiens',50)->primary();
-            $table->string('password',50);
-            $table->string('username',50);
-            $table->string('noHP',50);
-            $table->string('email',50);
+            $table->id();
+            // $table->string('idAudiens',50)->primary();
+            $table->string('password', 50);
+            $table->string('username', 50);
+            $table->string('noHP', 50);
+            $table->string('email', 50);
             $table->binary('profilePict');
             $table->timestamps();
         });

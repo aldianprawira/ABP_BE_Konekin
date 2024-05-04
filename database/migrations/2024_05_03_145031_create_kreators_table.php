@@ -12,15 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kreators', function (Blueprint $table) {
-            $table->string('idKreator',50)->primary();
-            $table->string('password',50);
-            $table->string('username',50);
-            $table->string('noHP',50);
-            $table->string('email',50);
+            $table->id();
+            // $table->string('idKreator',50)->primary();
+            $table->string('password', 50);
+            $table->string('username', 50);
+            $table->string('noHP', 50);
+            $table->string('email', 50);
             $table->binary('cv');
-            $table->string('bio',128);
-            $table->string('socMed',128);
-            $table->string('rekening',50);
+            $table->string('bio', 128);
+            $table->string('socMed', 128);
+            $table->string('rekening', 50);
             $table->binary('profilePict');
             $table->timestamps();
         });

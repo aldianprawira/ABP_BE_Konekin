@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Audiens;
+use App\Models\Kreators;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -31,7 +33,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -42,6 +44,22 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
+
+        // Simpan user ke dalam tabel audiens
+        $newAudience = Audiens::create([
+            'username' => $request->name,
+            'noHP' => NULL,
+            'email' => $request->email,
+            'profilePict' => NULL,
+        ]);
+        // Simpan user ke dalam tabel kreators
+        $newCreator = Kreators::create([
+            'username' => $request->name,
+            'noHP' => NULL,
+            'email' => $request->email,
+            'profilePict' => NULL,
+            'rekening' => NULL,
+        ]);
 
         Auth::login($user);
 
